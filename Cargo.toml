@@ -1,0 +1,19 @@
+[package]
+name = "ducks"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+# > Enable this when releasing
+# bevy = "0.8"
+# > Disable this when releasing
+bevy = { version = "0.8.0", features = ["dynamic"] }
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
